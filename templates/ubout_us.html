@@ -55,8 +55,8 @@
 
   <!-- 메뉴 버튼 -->
   <div class="container mt-3 mb-3">
-    <button class="menu-button selected" onclick="showContent(1)">MOAI 소개</button>
-    <button class="menu-button" onclick="showContent(2)">MOAI PLATFORM 소개</button>
+    <button class="menu-button " onclick="showContent(1)">MOAI 소개</button>
+    <button class="menu-button selected" onclick="showContent(2)">MOAI PLATFORM 소개</button>
     <button class="menu-button" onclick="showContent(3)">공지사항</button>
   </div>
 
@@ -93,8 +93,8 @@
       </div>
       <div class="container">
         <div class="ver-container">
-          <title>{{ post.title }}</title>
-          <h1>{{ post.title }}</h1>
+          <title class="mt-2 mb-3">{{ post.title }}</title>
+          <h4>{{ post.title }}</h4>
           <p style="white-space: pre-line;">{{ post.content }}</p>
           <a href="{{ url_for('about_us', current=3) }}">목록으로 돌아가기</a>
         </div>

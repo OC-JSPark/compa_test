@@ -12,29 +12,6 @@
       padding: 8px !important;
       font-size: 14px;
     }
-    table.type02 {
-      border-collapse: separate;
-      border-spacing: 1px;
-      text-align: left;
-      line-height: 1.5;
-      border-top: 1px solid #ccc;
-      margin : auto;
-      width: 95%;
-    }
-    table.type02 th {
-      width: 150px;
-      padding: 10px;
-      font-weight: bold;
-      font-size: 14;
-      vertical-align: top;
-      border-bottom: 1px solid #ccc;
-    }
-    table.type02 td {
-      padding: 10px;
-      font-size: 14;
-      vertical-align: top;
-      border-bottom: 1px solid #ccc;
-    }
   </style>
   <script>
     // 초기에 보여질 화면 설정
@@ -85,14 +62,14 @@
 
   <div class="container">
     <form class="d-flex" role="search" method="GET" action="/search">
-      <div class="input-group mb-3">
-        <input type="search" class="form-control me-8" placeholder="Search..." aria-label="Search" name="keyword">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </div>
+      <input type="search" class="form-control me-8" placeholder="Search..." aria-label="Search" name="keyword">
+      <button class="btn btn-outline-success" type="submit">
+        <img src="../static/img/search2.svg" style="width: 30px;">
+      </button>
     </form>
   </div>
 
-  <div class="container mb-2">
+  <div class="container mt-3">
     <div class="accordion" id="accordionFlushExample">
       <div class="accordion-item">
           <h2 class="accordion-header">
@@ -108,50 +85,25 @@
   </div>
 
   <div class="container">
-    <div class="ver-container w-75">
+    <div class="ver-container w-100">
       {% if not data.count|enumerate(start=1) %}
       {% else %}
       <div class="container">
         <ul>
+          <hr>
           {% for da in data %}
-          <div class="container mb-3">
-            <table class="type02">
-              <tbody>
-                  <tr>
-                    <th scope="row">출원번호</th>
-                    <td>{{da["출원번호"]}}</td>
-                    <th scope="row">출원일</th>
-                    <td>{{da["출원일"]}}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">등록번호</th>
-                    <td>{{da["등록번호"]}}</td>
-                    <th scope="row">IPC(main)</th>
-                    <td>{{da["ipc"]}}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">출원인</th>
-                    <td colspan="3">{{da["출원인"]}}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">발명자</th>
-                    <td colspan="3">{{da["발명자"]}}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">발명의 명칭</th>
-                    <td colspan="3">{{da["발명의 명칭"]}}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">대표청구항</th>
-                    <td colspan="3">{{da["대표청구항"]}}</td>
-                  </tr>
-                  <tr>
-                      <th scope="row">링크</th>
-                      <td  colspan="3">{{da["LINK"]}}</td>
-                  </tr>
-              </tbody>
-            </table>
+          <div class="container mb-3 ver-container">
+            <div style="overflow:hidden; text-overflow: ellipsis;">
+              <h6>{{da["발명의 명칭"]}}</h6>
+            </div>
+            <div>
+              <p style="font-size: 13px; color: #7c7c7c; margin-bottom:-5px;">출원인 | {{da["출원인"]}} | 출원번호 | {{da["출원번호"]}} | 출원일 | {{da["출원일"]}}</p>
+              <p style="font-size: 13px; color: #7c7c7c;">발명자 | {{da["발명자"]}} | IPC(main) | {{da["ipc"]}}</p>
+              <!-- <p style="font-size: 13px; color: #7c7c7c;">링크 | {{da["LINK"]}}</p> -->
+            </div>
+            <div style="font-size: 14px;">대표청구항 | {{da["대표청구항"]}}</div>
           </div>
+          <hr>
           {% endfor %}
         </ul>
       </div>

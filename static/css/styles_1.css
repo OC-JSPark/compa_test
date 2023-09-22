@@ -102,8 +102,8 @@
 
 /* item 가로 정렬 */
 .ver-container{
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -248,20 +248,10 @@
 }
 /*  */
 
-.btn{
-  color: #00000000;
-  border-color: #b4b4b400;
-}
-
-.btn:hover {
-  background-color: #b4b4b400;
-  border-color: #b4b4b400;
-}
-
 .btn-outline-success{
-  color: #00000000;
-  border-color: #b4b4b400;
-  background-color: #b4b4b400;
+  color: #ffffff;
+  border-color: #b4b4b4;
+  background-color: #b4b4b4;
 }
 
 /* 메뉴 버튼 스타일 */
@@ -303,6 +293,9 @@
   font-size: 16px;
 }
 
+.form-control{
+  width: 800px !important;
+}
 
 /* google map setting */
 

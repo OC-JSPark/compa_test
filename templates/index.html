@@ -29,6 +29,7 @@
         <a href="#section2"></a>
         <a href="#section3"></a>
         <a href="#section4"></a>
+        <a href="#section5"></a>
     </div>
 
     <div class="section" id="section1">
@@ -36,23 +37,25 @@
         <div class="d-md-flex flex-md-equal my-md-3 ps-md-3">
             <div class="background-image text-center overflow-hidden me-3" style="flex: 1;">
                 <div class="my-3 ms-2 p-3">
-                    <!-- <img src="../static/img/logo.png" alt="로고" width="150px"> -->
                     <h2 class="display-5">일반 검색</h2>
                     <form class="d-flex rounded" role="search" method="GET" action="/search">
                         <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search" name="keyword">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit">
+                            <img src="../static/img/search.svg" style="width: 30px;">
+                        </button>
                     </form>
                     <p class="lead me-3 mt-4">일반 검색에 대한 설명 일반 검색에 대한 설명 일반 검색에 대한 설명 일반 검색에 대한 설명 일반 검색에 대한 설명 일반 검색에 대한 설명 .</p>
                 </div>
             </div>
             <div class="background-image text-center overflow-hidden me-3" style="flex: 1;">
                 <div class="my-3 ms-2 p-3">
-                    <!-- <img src="../static/img/logo.png" alt="로고" width="150px"> -->
                     <h2 class="display-5">지능화 검색</h2>
                     <!-- <form class="d-flex" role="search" method="GET" action="/search"> -->
                     <form class="d-flex rounded" role="search" method="GET">
                         <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search" name="keyword">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit">
+                            <img src="../static/img/search.svg" style="width: 30px;">
+                        </button>
                     </form>
                     <p class="lead me-3 mt-4">지능화 검색에 대한 설명 지능화 검색에 대한 설명지능화 검색에 대한 설명지능화 검색에 대한 설명지능화 검색에 대한 설명지능화 검색에 대한 설명 .</p>
                 </div>
@@ -65,22 +68,36 @@
         <div class="d-md-flex flex-md-equal my-md-3 ps-md-3">
             <div class="background-image2 text-center overflow-hidden me-3" style="flex: 1;">
                 <div class="my-3 py-3 p-3">
-                    <!-- <img src="../static/img/logo.png" alt="로고" width="150px"> -->
                     <h2 class="display-5">등급평가</h2>
                     <p class="lead">등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 .</p>
-                    <button class="btn btn-outline-success" type="submit">Go →</button>
+                    <button class="btn btn-outline-success" type="submit" style="color: #ffffff; border-color: #ffffff;">Go →</button>
                 </div>
             </div>
             <div class="background-image2 text-center overflow-hidden me-3" style="flex: 1;">
                 <div class="my-3 ms-2 p-3">
-                    <!-- <img src="../static/img/logo.png" alt="로고" width="150px"> -->
                     <h2 class="display-5">가치평가</h2>
                     <p class="lead">가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 .</p>
-                    <button class="btn btn-outline-success" type="submit">Go →</button>
+                    <button class="btn btn-outline-success" type="submit" style="color: #ffffff; border-color: #ffffff;">Go →</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <section class="section" id="section5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-12">
+              <h1>MOAI Platform MAP</h1>
+              <p>전국 소재/기업 지도 서비스를 이용하여 첨단융합소재의 지역별 탐색을 추후 할 수 있습니다.</p>
+            </div>
+            <div class="col-lg-8 col-12">
+              <div id="map" class="shadow">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.4682727362647!2d-122.39309942040764!3d37.78267513336626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807f619a62df%3A0x491ce2f73977af35!2sGitHub!5e0!3m2!1sko!2skr!4v1667199132180!5m2!1sko!2skr" style="width: 100%; height: 100%; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     <!-- 카드뉴스 -->
     <div class="section" id="section3">
@@ -130,7 +147,7 @@
 {% endblock %}
 {% block footer %}
     {{ super() }}
-    <footer class="fixed-bottom  pt-3">
+    <footer class="fixed-bottom pt-3">
             <div class="footer-content">
               <div class="footer-logo" style="margin-top: -10px;">
                 <img src="../static/img/logo1.png" alt="Company Logo">

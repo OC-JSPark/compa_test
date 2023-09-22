@@ -4,7 +4,19 @@
   {{ super() }}
   <style>
     .img-container{
-      background-image: url('../../static/img/ser.png');
+      background-image: url('../static/img/ser.png');
+    }
+    .link-button {
+      padding: 10px 10px;
+      width: 250px;
+      font-size: 16px;
+      background-color: #6da594;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
     }
   </style>
 {% endblock %}
@@ -13,16 +25,67 @@
     <h1>GUIDE</h1>
   </div>
 
-  <div class="container mt-3">
-    <h3>검색가이드</h3>
-  </div>
-  <div class="ver-container text-center mt-3 mb-3">
-    <h3>관련사이트</h3>
+  <div class="ver-container text-center mt-2 mb-5">
+    <h3 class="mt-3">관련사이트</h3>
+    <div class="container mt-3 mb-3">
+      <a class="link-button me-3" href="https://www.kipa.org/kipa/index.jsp">한국발명진흥회</a>
+      <a class="link-button me-3" href="https://www.ripc.org/www2/portal/main.do">지역지식재산센터</a>
+      <a class="link-button" href="http://www.kmsk.or.kr/">한국지식경영학회</a>
+    </div>
     <div class="container">
-      <img src="../static/img/guide.png" width="900px">
+      <a class="link-button me-3" href="http://www.patent.or.kr/">한국특허학회</a>
+      <a class="link-button" href="http://www.kipla.or.kr/">한국지식재산학회</a>
     </div>
   </div>
-  <div class="container">
-    <h3>개인정보처리방침</h3>
+
+  <div class="container ver-container mt-3" style="width: 700px">
+    <h3 class="text-center">검색가이드</h3>
+    <h4 class="mt-3 mb-3">첨단 융합 소재 핵심 IP 플랫폼 메뉴 구성</h4>
+    <p>첨단 융합 소재 핵심 IP 플랫폼의 기술 검색·분석·평가 서비스 체계는 다음과 같습니다. 한국발명진흥회, 지역지식재산센터, 한국지식경영학회, 한국특허학회, 한국지식재산학회로부터 확보한 데이터에서 키워드 검색을 할 수 있는 &#60;일반 검색&#62;, 시멘틱/온톨로지/머신러닝 기능이 부여되어 검색어와 연관된 특허 및 키워드를 결과로 보여주는 &#60;지능화검색&#62;, 특허등급 및 가치평가가 가능한 &#60;등급/가치평가&#62;로 구성됩니다.</p>
+    <div class="ver-container text-center">
+      <img class="container w-75" src="../static/img/guide/guide1.png">
+      <p style="font-size: 13px;">MOAi PLATFORM 메인화면 구성</p>
+    </div>
+
+
+    <h4 class="mt-5 mb-3">첨단 융합 소재 핵심 IP 플랫폼 검색</h4>
+    <h5>일반검색</h5>
+    <p>&#60;일반검색&#62;은 사용자가 입력한 검색 키워드와 DB의 일대일 매핑을 통해 일치하는 검색결과를 제공합니다.</p>
+
+    <h6>· 검색창 위치</h6>
+    <p>일반검색 검색창의 위치는 다음과 같습니다.</p>
+    <div class="ver-container text-center">
+      <img class="container w-75" src="../static/img/guide/guide2.png">
+      <p style="font-size: 13px;">메인화면 센터 검색창</p>
+    </div>
+    <div class="ver-container text-center">
+      <img class="container w-75" src="../static/img/guide/guide3.png">
+      <p style="font-size: 13px;">SERVICE > 일반검색 메뉴</p>
+    </div>
+
+    <h6>· 검색결과</h6>
+    <p>일반검색 검색결과</p>
+    <div class="ver-container text-center">
+      <img class="container w-75" src="../static/img/guide/guide4.png">
+      <p style="font-size: 13px;">'2023'이라는 키워드를 입력한 후 검색한 예</p>
+    </div>
+
+    <h5 class="mt-3">지능화검색</h5>
+    <p>&#60;지능화검색&#62;은 검색하고자 하는 키워드를 입력하면 검색 키워드와 관련된 특허 정보를 결과로 가져오고, 추가적으로 검색된 문헌의 주요 키워드를 대상으로 <b>머신러닝을 통해 학습된 알고리즘을 통해</b> 유사키워드를 추출하여 확보된 유사문헌 및 인용문헌, IPC에서 재가공된 유사문헌을 제공합니다.</p>
+    <p>입력한 키워드에 해당하는 문헌뿐만 아니라, 기술유사도가 높은 문헌까지 기술사업화 추진 주체에 제공됨</p>
+
+    <h6>· 검색창의 위치</h6>
+    <p>지능화검색 검색창의 위치는 다음과 같습니다.</p>
+    <div class="ver-container text-center">
+      <img class="container w-75" src="../static/img/guide/guide5.png">
+      <p style="font-size: 13px;">메인화면 센터 검색창</p>
+    </div>
+    <div class="ver-container text-center">
+      <img class="container w-75" src="../static/img/guide/guide6.png">
+      <p style="font-size: 13px;">SERVICE > 지능화검색 메뉴</p>
+    </div>
+
+    <h6>· 검색결과</h6>
+    <p>내용 추가 필요</p>
   </div>
 {% endblock %}
