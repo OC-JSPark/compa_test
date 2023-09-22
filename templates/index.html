@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block title %}main{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .background-image:nth-child(1){
+            background-image: url('../static/img/search1.png');
+        }
+        .background-image:nth-child(2){
+            background-image: url('../static/img/search2.png');
+        }
+        .background-image2:nth-child(1){
+            background-image: url('../static/img/eval1.png');
+        }
+        .background-image2:nth-child(2){
+            background-image: url('../static/img/eval2.png');
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="scroll-links">
+        <a href="#section1"></a>
+        <a href="#section2"></a>
+        <a href="#section3"></a>
+        <a href="#section4"></a>
+    </div>
+
+    <div class="section" id="section1">
+        <!-- 검색 -->
+        <div class="d-md-flex flex-md-equal my-md-3 ps-md-3">
+            <div class="background-image text-center overflow-hidden me-3" style="flex: 1;">
+                <div class="my-3 ms-2 p-3">
+                    <!-- <img src="../static/img/logo.png" alt="로고" width="150px"> -->
+                    <h2 class="display-5">일반 검색</h2>
+                    <form class="d-flex rounded" role="search" method="GET" action="/search">
+                        <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search" name="keyword">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <p class="lead me-3 mt-4">일반 검색에 대한 설명 일반 검색에 대한 설명 일반 검색에 대한 설명 일반 검색에 대한 설명 일반 검색에 대한 설명 일반 검색에 대한 설명 .</p>
+                </div>
+            </div>
+            <div class="background-image text-center overflow-hidden me-3" style="flex: 1;">
+                <div class="my-3 ms-2 p-3">
+                    <!-- <img src="../static/img/logo.png" alt="로고" width="150px"> -->
+                    <h2 class="display-5">지능화 검색</h2>
+                    <!-- <form class="d-flex" role="search" method="GET" action="/search"> -->
+                    <form class="d-flex rounded" role="search" method="GET">
+                        <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search" name="keyword">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <p class="lead me-3 mt-4">지능화 검색에 대한 설명 지능화 검색에 대한 설명지능화 검색에 대한 설명지능화 검색에 대한 설명지능화 검색에 대한 설명지능화 검색에 대한 설명 .</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 등급 -->
+    <div class="section" id="section2">
+        <div class="d-md-flex flex-md-equal my-md-3 ps-md-3">
+            <div class="background-image2 text-center overflow-hidden me-3" style="flex: 1;">
+                <div class="my-3 py-3 p-3">
+                    <!-- <img src="../static/img/logo.png" alt="로고" width="150px"> -->
+                    <h2 class="display-5">등급평가</h2>
+                    <p class="lead">등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 등급평가에 대한 설명 .</p>
+                    <button class="btn btn-outline-success" type="submit">Go →</button>
+                </div>
+            </div>
+            <div class="background-image2 text-center overflow-hidden me-3" style="flex: 1;">
+                <div class="my-3 ms-2 p-3">
+                    <!-- <img src="../static/img/logo.png" alt="로고" width="150px"> -->
+                    <h2 class="display-5">가치평가</h2>
+                    <p class="lead">가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 가치평가에 대한 설명 .</p>
+                    <button class="btn btn-outline-success" type="submit">Go →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 카드뉴스 -->
+    <div class="section" id="section3">
+        <div class="container">
+            <div class="card-container">
+            <a href="#" class="btn2 prev">&lt;</a>
+            {% for news in news_data %}
+            <div class="card" style="width: 18rem; height: 50vh;">
+                <div class="card-body">
+                <h5 class="card-title">{{ news.title }}</h5>
+                <p class="card-text">{{ news.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <a href="#" class="btn2 next">&gt;</a>
+            </div>
+        </div>
+        <script src="../static/js/script.js"></script>
+    </div>
+
+    <!-- 카카오 맵 -->
+    <div class="section" id="section4">
+        <div class="container">
+            <p style="width: 500px;">지도에 대한 설명 지도에 대한 설명지도에 대한 설명지도에 대한 설명지도에 대한 설명지도에 대한 설명지도에 대한 설명지도에 대한 설명지도에 대한 설명지도에 대한 설명</p>
+            <div id="map" style="width: 500px; height: 400px;"></div>
+        </div>
+        <!-- <div class="continer">
+
+        </div> -->
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8da935472bb13b19c70aeedc5fa47d3d"></script>
+        <script type="text/javascript">
+            var container = document.getElementById('map');
+            var options = {
+            center: new kakao.maps.LatLng(35.17605321724086, 128.09374549543085),
+            level: 3
+            };
+            var map = new kakao.maps.Map(container, options);
+
+            var markerPosition  = new kakao.maps.LatLng(35.17605321724086, 128.09374549543085);
+            var marker = new kakao.maps.Marker({
+            position: markerPosition
+            });
+            marker.setMap(map);
+        </script>
+    </div>
+    <script src="../static/js/fullpage.js"></script>
+{% endblock %}
+{% block footer %}
+    {{ super() }}
+    <footer class="fixed-bottom  pt-3">
+            <div class="footer-content">
+              <div class="footer-logo" style="margin-top: -10px;">
+                <img src="../static/img/logo1.png" alt="Company Logo">
+              </div>
+              <div class="footer-links">
+                <ul><li><a href='#'>이용약관</a></li></ul>
+              </div>
+              <div class="footer-links">
+                <ul><li><a href='#'>개인정보처리방침</a></li></ul>
+              </div>
+              <div class="footer-links">
+                <ul><li><a href='#'>이메일 무단 수집거부</a></li></ul>
+              </div>
+              <div class="footer-links">
+                <ul><li><a href='#'>사업단 소개</a></li></ul>
+              </div>
+            </div>
+            <div class="company-intro">
+              <p>진주시 진주대로 816번길 15의학관 105호 전략기획실<br>Ⓒ COBAI PLATFORM. ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}site map{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style>
+    .img-container{
+      background-image: url('../../static/img/ser.png');
+    }
+    .ver-container:nth-of-type(1){
+      background-color: #00bb73;
+    }
+    .ver-container:nth-of-type(2){
+      background-color: #009744;
+    }
+    .ver-container:nth-of-type(3){
+      background-color: #007032;
+    }
+  </style>
+{% endblock %}
+{% block main %}
+  <div class="img-container">
+    <h1>SITEMAP</h1>
+  </div>
+
+  <div class="container">
+    <h3>사이트 맵</h3>
+  </div>
+  <div class="container">
+    <div class="ver-container">
+        <a class="site-button" href="/about_us">ABOUT US</a>
+        <a class="site-button" href="/about_us">3HACOBAI 소개</a>
+        <a class="site-button" href="/about_us?current=2">COBAI PLATFORM 소개</a>
+        <a class="site-button" href="/about_us?current=3">공지사항</a>
+        <a class="site-button" href="#">&nbsp</a>
+    </div>
+    <div class="ver-container">
+        <a class="site-button" href="/service">SERVICE</a>
+        <a class="site-button" href="/service">일반 검색</a>
+        <a class="site-button" href="/service?current=2">지능화 검색</a>
+        <a class="site-button" href="/service">등급평가</a>
+        <a class="site-button" href="/service">가치평가</a>
+    </div>
+    <div class="ver-container">
+        <a class="site-button" href="/guide">GUIDE</a>
+        <a class="site-button" href="/guide">검색 가이드</a>
+        <a class="site-button" href="/guide">관련 사이트</a>
+        <a class="site-button" href="/guide">개인정보처리방침</a>
+        <a class="site-button" href="/guide">&nbsp</a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block title %}service{% endblock %}
+{% block head %}
+  {{ super() }}
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <style>
+    .img-container{
+      background-image: url('../../static/img/ser.png');
+    }
+    .arbody{
+      padding: 8px !important;
+      font-size: 14px;
+    }
+  </style>
+  <script>
+    // 초기에 보여질 화면 설정
+    let currentContent = 1;
+
+    // 화면을 보여주는 함수
+    function showContent(contentNumber) {
+      // 현재 보이는 화면을 숨김
+      document.getElementById(`content${currentContent}`).style.display = 'none';
+      // 선택된 버튼의 스타일 변경
+      document.querySelector('.menu-button.selected').classList.remove('selected');
+      // 선택된 버튼의 스타일을 변경
+      document.querySelector(`.menu-button:nth-child(${contentNumber})`).classList.add('selected');
+      // 선택된 화면을 보여줌
+      document.getElementById(`content${contentNumber}`).style.display = 'block';
+      // 현재 화면 업데이트
+      currentContent = contentNumber;
+    }
+  </script>
+{% endblock %}
+{% block main %}
+  <div class="img-container">
+    <h1>SERVICE</h1>
+  </div>
+
+
+  <!-- 메뉴 버튼 -->
+  <div class="container mt-3 mb-3">
+    <button class="menu-button selected" onclick="showContent(1)">일반 검색</button>
+    <button class="menu-button" onclick="showContent(2)">지능화 검색</button>
+    <button class="menu-button" onclick="showContent(2)">등급평가</button>
+    <button class="menu-button" onclick="showContent(2)">가치평가</button>
+  </div>
+
+
+
+  <!-- 화면 내용 -->
+  <div id="content1">
+    <div class="container">
+      <h3>일반 검색</h3>
+    </div>
+
+    <div class="container">
+      <p class="gray">특허 정보를 통합적으로 검색하는 시스템입니다.</a>
+    </div>
+
+    <div class="container">
+      <form class="d-flex" role="search" method="GET" action="/search">
+        <div class="input-group mb-3">
+          <input type="search" class="form-control me-8" placeholder="Search..." aria-label="Search" name="keyword">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="container">
+      <div class="accordion w-50" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="arbody accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    검색 TIP
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-parent="#accordionFlushExample">
+                <div class="arbody accordion-body">검색TIP 내용</div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="part-container mt-3">
+      <h3>분야별 검색</h3>
+    </div>
+    <div class="part-container">
+      <p class="gray">특허 정보를 각 분야별로 세부적으로 검색하는 시스템입니다.</a>
+    </div>
+    <div class="part-container">
+      <form class="d-flex" role="search" method="GET" action="/search">
+        <div class="part-container2 flex-row">
+          <div class="input-group mb-3">
+            <span class="input-group-text">출원번호</span>
+            <input type="search" class="form-control" placeholder="하이픈(-) 또는 슬래시(/)를 넣지 않아도 검색이 가능합니다." aria-label="app_num" name="app_num">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">출원일</span>
+            <input type="search" class="form-control" placeholder="예) >20150101<=20151231" aria-label="app_date" name="app_date">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">등록번호</span>
+            <input type="search" class="form-control" placeholder="하이픈(-) 또는 슬래시(/)를 넣지 않아도 검색이 가능합니다." aria-label="reg_num" name="reg_num">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">발명의명칭</span>
+            <input type="search" class="form-control" aria-label="in_title" name="in_title">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">대표청구항</span>
+            <input type="search" class="form-control" aria-label="represent" name="represent">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">출원인</span>
+            <input type="search" class="form-control" aria-label="applicant" name="applicant">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">발명자</span>
+            <input type="search" class="form-control" aria-label="inventor" name="inventor">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">IPC(MAIN)</span>
+            <input type="search" class="form-control" placeholder="예) A61K* 또는 C07C-008*" aria-label="ipc" name="ipc">
+          </div>
+          <div class="container">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+
+          <div class="accordion container mt-3" id="accordionFlushExample">
+            <div class="accordion-item w-100">
+                <h2 class="accordion-header">
+                    <button class="arbody accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        검색 TIP
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-parent="#accordionFlushExample">
+                    <div class="arbody accordion-body">
+                      <img src="../static/img/tip.png" style="width: 850px;">
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="content2" style="display: none;">
+    <div class="container">
+      <h3>지능화 검색</h3>
+    </div>
+
+    <div class="container">
+      <p class="gray">특허 정보를 통합적으로 검색하는 시스템입니다.</a>
+    </div>
+
+    <div class="container">
+      <form class="d-flex" role="search" method="GET" action="#">
+        <div class="input-group mb-3">
+          <input type="search" class="form-control me-8" placeholder="Search..." aria-label="Search" name="keyword">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="container">
+      <div class="accordion" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="arbody accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    검색 TIP&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-parent="#accordionFlushExample">
+                <div class="arbody accordion-body">검색TIP 내용</div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const menuToShow = urlParams.get('current');
+  if (menuToShow == 2){
+    showContent(2);
+  }
+  </script>
+{% endblock %}
